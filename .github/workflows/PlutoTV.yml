@@ -7,11 +7,10 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm'
-          cache-dependency-path: './package-lock.json'
       - name: install dependencies
         run: npm install
       - name: Create m3u xml
@@ -20,6 +19,9 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add pl.guide.xml pl.guide.xml.gz
-          git commit -m "Auto Update PL EPG"
+          git add plutotv_us.xml plutotv_us.m3u8
+          git commit -m "Auto Update PlutoTV"
           git push
+
+
+
