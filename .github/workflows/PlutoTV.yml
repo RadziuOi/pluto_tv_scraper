@@ -14,7 +14,7 @@ jobs:
       - name: install dependencies
         run: npm install
       - name: Create m3u xml
-        run: node ./index.js --exclude-groups "Español"
+        run: node ./index.js --exclude-groups "Español" --x-tvg-url https://raw.githubusercontent.com/RadziuOi/pluto_tv_scraper/refs/heads/main/plutotv_us.xml 
       - name: Commit and push changes
         run: |
           git config --local user.name "github-actions[bot]"
